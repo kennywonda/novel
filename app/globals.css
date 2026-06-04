@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-playfair: 'Playfair Display', serif;
+  --font-dancing: 'Dancing Script', cursive;
+  --color-navy: #0a0a1a;
+  --color-deep-navy: #06061a;
+  --color-gold: #c9a84c;
+  --color-gold-light: #f0d080;
+  --color-pink: #e8a0b0;
+  --color-ivory: #f8f4e8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-navy);
+  color: var(--color-ivory);
+  font-family: var(--font-playfair);
 }
+
+/* Typography */
+.font-story {
+  font-family: var(--font-dancing);
+}
+
+.font-title {
+  font-family: var(--font-playfair);
+}
+
+/* Gold text gradient */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Starfield background */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Floating particle */
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: fixed;
+  bottom: -20px;
+  animation: float-up var(--duration, 8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  font-size: var(--size, 1rem);
+  z-index: 1;
+}
+
+/* Page flip transition */
+@keyframes page-in {
+  from { opacity: 0; transform: rotateY(-8deg) translateX(-20px); }
+  to   { opacity: 1; transform: rotateY(0deg)  translateX(0); }
+}
+
+.page-enter {
+  animation: page-in 0.7s ease forwards;
+}
+
+/* Book glow */
+.book-glow {
+  box-shadow: 0 0 60px rgba(201, 168, 76, 0.2), 0 0 120px rgba(201, 168, 76, 0.1);
+}
+
+/* Gold input */
+.input-gold {
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--color-ivory);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--font-dancing);
+  font-size: 1.1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-gold:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.25);
+}
+
+.input-gold::placeholder {
+  color: rgba(248, 244, 232, 0.35);
+}
+
+/* Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  color: var(--color-navy);
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  font-family: var(--font-playfair);
+  border-radius: 50px;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  font-size: 1rem;
+}
+
+.btn-outline:hover {
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Divider */
+.gold-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 0 auto;
+}
+
+/* Scroll */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-navy); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 2px; }
