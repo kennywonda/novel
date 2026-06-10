@@ -35,6 +35,15 @@ export default function AnswerButtons({ onYes, onLater }: AnswerButtonsProps) {
     }
   };
 
+  const handleLaterClick = () => {
+    if (unlocked) {
+      onLater();
+      return;
+    }
+
+    handleLaterHover();
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -89,7 +98,7 @@ export default function AnswerButtons({ onYes, onLater }: AnswerButtonsProps) {
 
         <motion.button
           onHoverStart={handleLaterHover}
-          onClick={unlocked ? onLater : undefined}
+          onClick={handleLaterClick}
           className="btn-outline"
           animate={pos ? { position: 'fixed', top: pos.top, left: pos.left } : { position: 'relative', top: 'auto', left: 'auto' }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -98,7 +107,7 @@ export default function AnswerButtons({ onYes, onLater }: AnswerButtonsProps) {
             zIndex: pos ? 9999 : 'auto',
           }}
         >
-          {unlocked ? '❤️ Maybe another time' : hoverCount === 0 ? '❤️ Maybe another time' : `❤️ Maybe another time (${5 - hoverCount} more...)`}
+          ❤️ Maybe another time
         </motion.button>
       </div>
     </motion.div>
