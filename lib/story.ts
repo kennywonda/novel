@@ -37,27 +37,30 @@ export const chapters: Chapter[] = [
   {
     id: 3,
     title: "The Enchanted Evening",
-    inputPrompt: "What's your favorite thing to do on a perfect evening?",
+    inputPrompt: "What do you remember most about that evening? 🎬",
     inputKey: "perfectEvening",
     getContent: (answers) => [
-      `Fate has a funny way of writing its own chapters.`,
-      `One evening, their paths finally crossed—not by accident, but by the quiet pull of something neither could name.`,
-      `They spent the evening ${answers.perfectEvening || 'talking beneath the moonlight'}, and for the first time in a long while, the stranger felt seen.`,
-      `${answers.name} had a way of making the world feel softer, safer, more full of wonder.`,
-      `The stranger thought to himself: "What if this could be more than just one evening?"`,
+      `There was one evening the stranger would never forget — the night they went to the cinema together.`,
+      `It started simply enough. Pizza, laughter, and ${answers.name} somehow turning a simple order into the most entertaining performance the stranger had ever witnessed. He tried to keep a straight face. He failed completely.`,
+      `Then came the ice cream. ${answers.name} had chosen it with such confidence — and proceeded to wear a good portion of it on her dress, completely unbothered, dancing like no one was watching and laughing like the whole world was in on the joke.`,
+      `The stranger watched all of this and thought — quietly, to himself — that he had never seen someone so effortlessly, brilliantly themselves.`,
+      `${answers.perfectEvening ? `And when she said she remembered "${answers.perfectEvening}" — he smiled, because he remembered everything.` : `He remembered everything about that night. Every laugh. Every moment.`}`,
+      `The movie played. The lights dimmed. But honestly? He wasn't watching the screen.`,
     ],
   },
   {
     id: 4,
     title: "The Spell",
-    inputPrompt: "If you could go anywhere in the world, where would it be?",
+    inputPrompt: "If you could relive one moment from that night, what would it be? ✨",
     inputKey: "dreamPlace",
     getContent: (answers) => [
-      `Days turned to weeks, and the stranger found himself lost in thought.`,
-      `He had dreamed of taking ${answers.name} to ${answers.dreamPlace || 'a place where magic still lives'}, just the two of them.`,
-      `He imagined all the little moments they could share—the laughter, the quiet conversations, the way time slows when you're with someone who makes your heart feel full.`,
-      `But how does one ask for such a thing? How does a builder of dreams dare to dream for himself?`,
-      `And so, he did what he knew best—he built something for her. A story. This story.`,
+      `But the evening wasn't done with its surprises.`,
+      `Out of nowhere, someone moved a little too close — a little too intentionally. And before the stranger could even process what was happening, ${answers.name} had already stepped in.`,
+      `She protected him. Boldly. Without hesitation. The same girl who had ice cream on her dress minutes earlier was now standing like an absolute guardian.`,
+      `The stranger didn't know whether to laugh or be genuinely moved. He did both.`,
+      `${answers.dreamPlace ? `If he could relive one moment, he knew she might say "${answers.dreamPlace}" — and he would say: all of it.` : `If he could relive any moment from that night — he would choose all of it. Every single second.`}`,
+      `It was the kind of evening that quietly rewrites things inside you. The kind you replay when the room goes quiet.`,
+      `And so, he did what he knew best — he built something to remember it by. A story. This story.`,
     ],
   },
 ];
@@ -65,12 +68,27 @@ export const chapters: Chapter[] = [
 export function getFinalChapter(name: string): string[] {
   return [
     `Dear ${name},`,
-    `If you've made it this far, then you know by now—this was never just a fairy tale.`,
-    `This was me, trying to find the words I've been too nervous to say out loud.`,
-    `You are the person who makes ordinary moments feel like magic. The one I think about when I'm building something new, when I'm laughing at something silly, when I'm just... existing.`,
-    `I don't know if you feel the same way. But I had to ask.`,
-    `So here it is, the question I built an entire storybook to ask:`,
-    `Would you go out with me? Not in a fairy tale—in real life. Coffee, dinner, a walk, whatever feels right. Just you and me.`,
-    `What do you say?`,
+
+    `Every chapter before this was a story, but this page is real.`,
+
+    `I didn't create this because I was nervous to ask you something. I created it because you're someone worth doing something different for.`,
+
+    `The truth is, plenty of people can send a text message, plenty of people can say hello, and plenty of people can ask someone out in the usual way.`,
+
+    `But I wanted this moment to feel a little more memorable. A little more intentional. Something built specifically for you.`,
+
+    `As you moved through these pages, you probably noticed that this story slowly became less about a fairy tale and more about a real person.`,
+
+    `That's because behind every chapter was me.`,
+
+    `I've enjoyed getting to know you, and I'd genuinely like the opportunity to know you better.`,
+
+    `So rather than ending this story with a grand magical twist, I'll end it with a simple and honest question.`,
+
+    `Would you like to go out with me sometime?`,
+
+    `Whatever it is, I'd love the chance to create a real story together and see where it leads.`,
+
+    `The next page is yours to write.`,
   ];
 }
