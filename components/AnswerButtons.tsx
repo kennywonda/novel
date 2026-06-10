@@ -98,7 +98,7 @@ export default function AnswerButtons({ onYes, onLater }: AnswerButtonsProps) {
             zIndex: pos ? 9999 : 'auto',
           }}
         >
-          {unlocked ? '❤️ Ask me again later' : hoverCount === 0 ? '❤️ Ask me again later' : `❤️ Ask me again later (${5 - hoverCount} more...)`}
+          {unlocked ? '❤️ Maybe another time' : hoverCount === 0 ? '❤️ Maybe another time' : `❤️ Maybe another time (${5 - hoverCount} more...)`}
         </motion.button>
       </div>
     </motion.div>
