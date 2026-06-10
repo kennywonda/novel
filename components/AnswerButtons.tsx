@@ -107,7 +107,7 @@ export default function AnswerButtons({ onYes, onLater }: AnswerButtonsProps) {
             zIndex: pos ? 9999 : 'auto',
           }}
         >
-          ❤️ Maybe another time
+          ❤️ Am sorry kenny, maybe later
         </motion.button>
       </div>
     </motion.div>
